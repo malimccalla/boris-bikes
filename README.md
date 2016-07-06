@@ -20,15 +20,21 @@ I want to dock my bike at the docking station
 As a member of the public
 So I can decide whether to use the docking station
 I want to see a bike that has been docked
+
+As a member of the public,
+So that I am not confused and charged unnecessarily,
+I'd like docking stations not to release bikes when there are none available.
 ```
 
 | Object          | Messages         |
 | --------------- |:----------------:|
-| Person          |       **1**      |
+| Person          |      **1**       |
 | Bike            | working?         |
 | Docking station | release_bike     |
 | Person          |      **11**      |
 | DockingStation  | dock_bike        |
 | DockingStation  | bike_docked?     |
+| Person          |     **12**       |
+| DockingStation  | bike_available?  |
 
 Authors: [Mali Michael](https://github.com/malimichael/) & [Laurence Kite](https://github.com/larryzx/)
