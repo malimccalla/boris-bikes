@@ -38,9 +38,16 @@ I'd like docking stations not to accept more bikes than their capacity.
 | Person          |      **11**      |
 | DockingStation  | dock_bike        |
 | DockingStation  | bike_docked?     |
-| Person          |     **12**       |
-| DockingStation  | bike_available?  |
-| Maintainer      |    **13**        |
-| DockingStation  | bike_capacity    |
+| **Question**    |    **12**        |
+|Person           |                  |
+|DockingStation   | bike_available? (-Didn't use this **Brainstorming**) |     
+|   **Question**  |     **13**       |
+|Maintainer       |                  |
+|DockingStation   | bike_capacity (-Didn't use this **Brainstorming**)   |
+| **Question**    |     **14**       |
+|Maintainer       |                  |
+|DockingStation   | default_cap (Didn't use this **Brainstorming**)      |
 
-Authors: [Mali Michael](https://github.com/malimichael/) & [Laurence Kite](https://github.com/larryzx/)
+
+
+Authors: [Mali Michael](https://github.com/malimichael/) & [Laurence Kite](https://github.com/larryzx/) [Nick Bowman](/https://github.com/NJBow/)
