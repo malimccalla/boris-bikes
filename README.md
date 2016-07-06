@@ -32,10 +32,10 @@ I'd like docking stations not to accept more bikes than their capacity.
 
 | Object          | Messages         |
 | --------------- |:----------------:|
-| Person          |      **1**       |
+| **Question**    |      **1**       |
 | Bike            | working?         |
 | Docking station | release_bike     |
-| Person          |      **11**      |
+| **Question**    |      **11**      |
 | DockingStation  | dock_bike        |
 | DockingStation  | bike_docked?     |
 | **Question**    |    **12**        |
@@ -50,4 +50,4 @@ I'd like docking stations not to accept more bikes than their capacity.
 
 
 
-Authors: [Mali Michael](https://github.com/malimichael/) & [Laurence Kite](https://github.com/larryzx/) [Nick Bowman](/https://github.com/NJBow/)
+Authors: [Mali Michael](https://github.com/malimichael/) & [Laurence Kite](https://github.com/larryzx/) & [Nick Bowman](/https://github.com/NJBow/)
