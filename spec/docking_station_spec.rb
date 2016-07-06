@@ -16,6 +16,15 @@ describe DockingStation do
 
   end
 
+  describe '#dock' do
+
+    it 'raises an error if capacity is full' do
+      subject.dock(Bike.new)
+      expect {subject.dock(Bike.new)}.to raise_error("Bike capacity full")
+    end
+
+  end
+
   it 'responds to the method "release_bike"' do
     expect(subject).to respond_to(:release_bike)
   end
