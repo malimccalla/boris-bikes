@@ -11,9 +11,22 @@ class DockingStation
     @bikes = []
   end
 
+  def has_working_bike?
+    @bikes.each do |bike|
+      if bike.broken? == false
+        return true
+      end
+    end
+    false
+  end
+
   def release_bike
     fail 'no bikes available' if empty?
-    if @bikes.broken? == false then @bikes.pop
+    fail 'No working bikes' if has_working_bike? == false
+    @bikes.each do |bike|
+      if bike.broken? == false
+        return @bikes.delete(bike)
+      end
     end
   end
 
