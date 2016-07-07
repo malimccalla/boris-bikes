@@ -1,4 +1,5 @@
 require 'docking_station'
+require 'bike'
 
 describe DockingStation do
   it 'responds to the method "release_bike"' do
@@ -6,6 +7,24 @@ describe DockingStation do
   end
     it 'responds to the method dock with 1 argument' do
     is_expected.to respond_to(:dock).with(1).argument
+  end
+    it 'docking stations can accept a capacity variable' do
+    docking = DockingStation.new
+    expect(docking.capacity).to eq DockingStation::DEFAULT_CAPACITY
+  end
+  it 'raises and error when the docking station is full' do
+    docking = DockingStation.new
+    docking.capacity.times {docking.dock(Bike.new)}
+    expect {docking.dock(Bike.new)}.to raise_error 'docking station is full'
+  end
+  it 'allows custom capacity setting' do
+    docking = DockingStation.new(45)
+    expect(docking.capacity).to eq 45
+  end
+  it 'raises and error when the docking station is full' do
+    docking = DockingStation.new(50)
+    docking.capacity.times {docking.dock(Bike.new)}
+    expect {docking.dock(Bike.new)}.to raise_error 'docking station is full'
   end
 
   describe '#release_bike' do
