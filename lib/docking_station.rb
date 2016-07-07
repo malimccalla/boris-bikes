@@ -1,3 +1,5 @@
+# require 'bike'
+
 class DockingStation
 
   DEFAULT_CAPACITY = 20
@@ -11,7 +13,8 @@ class DockingStation
 
   def release_bike
     fail 'no bikes available' if empty?
-    @bikes.pop
+    if @bikes.broken? == false then @bikes.pop
+    end
   end
 
   def dock(bike)
@@ -20,6 +23,7 @@ class DockingStation
   end
 
   private
+
   def full?
     @bikes.count >= @capacity
   end
