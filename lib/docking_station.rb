@@ -1,23 +1,13 @@
-# require 'bike'
-
 class DockingStation
 
   DEFAULT_CAPACITY = 20
+
   attr_reader :bikes
   attr_accessor :capacity
 
   def initialize(capacity=DEFAULT_CAPACITY)
     @capacity = capacity
     @bikes = []
-  end
-
-  def has_working_bike?
-    @bikes.each do |bike|
-      if bike.broken? == false
-        return true
-      end
-    end
-    false
   end
 
   def release_bike
@@ -44,4 +34,14 @@ class DockingStation
   def empty?
     @bikes.empty?
   end
+
+  def has_working_bike?
+    @bikes.each do |bike|
+      unless bike.broken?
+        return true #exit out as soon as we find atleast one working bike
+      end
+    end
+    false
+  end
+
 end
