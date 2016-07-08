@@ -22,9 +22,9 @@ class DockingStation
 
   def release_bike
     fail 'no bikes available' if empty?
-    fail 'No working bikes' if has_working_bike? == false
+    fail 'No working bikes' unless has_working_bike?
     @bikes.each do |bike|
-      if bike.broken? == false
+      unless bike.broken?
         return @bikes.delete(bike)
       end
     end
