@@ -1,5 +1,4 @@
 require 'docking_station'
-require 'bike'
 
 describe DockingStation do
 
@@ -22,9 +21,10 @@ describe DockingStation do
 
   describe '#release_bike' do
 
-    let (:bike) {Bike.new}
+    let (:bike) {double("bike")}
 
     it 'it wont release a broken bike' do
+      allow(bike).to receive_messages(report_broken: true, broken?: true)
       bike.report_broken
       subject.dock(bike)
       expect{subject.release_bike}.to raise_error 'No working bikes'
@@ -35,6 +35,7 @@ describe DockingStation do
     end
 
     it 'only releases a bike if it is working' do
+      allow(bike).to receive(:broken?).and_return(false) # or { false } instead
       subject.dock(bike)
       expect(subject.release_bike).to eq bike
     end
@@ -49,13 +50,13 @@ describe DockingStation do
 
     it 'raises an error when a docking station is full' do
       docking = DockingStation.new(50)
-      docking.capacity.times {docking.dock(Bike.new)}
-      expect {docking.dock(Bike.new)}.to raise_error 'docking station is full'
+      docking.capacity.times {docking.dock(double(:bike))}
+      expect {docking.dock(double(:bike))}.to raise_error 'docking station is full'
     end
 
     it 'raises an error when a deafult capacity docking station is full' do
-      DockingStation::DEFAULT_CAPACITY.times{subject.dock(Bike.new)}
-      expect {subject.dock(Bike.new)}.to raise_error 'docking station is full'
+      DockingStation::DEFAULT_CAPACITY.times{subject.dock(double(:bike))}
+      expect {subject.dock(double(:bike))}.to raise_error 'docking station is full'
     end
 
     it 'responds to the method #dock with 1 argument' do

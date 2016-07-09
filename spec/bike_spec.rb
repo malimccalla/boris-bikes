@@ -3,7 +3,7 @@ require 'bike'
 describe Bike do
 
   it 'expects all new bikes not to be broken' do
-    expect(Bike.new).not_to be_broken
+    expect(subject).not_to be_broken
   end
 
   it 'can be reported broken' do
