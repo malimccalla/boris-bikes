@@ -23,7 +23,6 @@ describe DockingStation do
 
   describe '#release_bike' do
 
-
     it 'it wont release a broken bike' do
       allow(bike).to receive_messages(report_broken: true, broken?: true)
       bike.report_broken
@@ -36,7 +35,7 @@ describe DockingStation do
     end
 
     it 'only releases a bike if it is working' do
-      #break our dummy bike for this example
+      #we break our dummy bike for this example
       allow(bike).to receive(:broken?).and_return(false) #or { false } instead
       subject.dock(bike)
       expect(subject.release_bike).to eq bike
